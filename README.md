@@ -56,6 +56,7 @@ It can be overridden by defining the ```GITLAB_RADIATOR_CONFIG``` environment va
 Configuration properties:
 
 - ```gitlab / url``` (mandatory) - Root URL of your GitLab installation - or that of GitLab SaaS CI
+- ```gitlab / projectsUrl``` (mandatory) - URL for projects source, eg. ```/projects``` or ```/group/:id/projects```
 - ```gitlab / access-token``` (mandatory or env variable) - A GitLab access token for allowing access to the GitLab API. One can be generated with GitLab's UI under Profile Settins / Personal Access Tokens. If this property is not specified, it's mandatory to define an environment variable named `GITLAB_ACCESS_TOKEN`.
 - ```projects / include``` (optional) - Regular expression for inclusion of projects. Default is to include all projects.
 - ```projects / exclude``` (optional) - Regular expression for exclusion of projects. Default is to exclude no projects.

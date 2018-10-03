@@ -36,6 +36,6 @@ function validate(cfg) {
   assert.ok(cfg.gitlab, 'Mandatory gitlab properties missing from configuration file')
   assert.ok(cfg.gitlab.url, 'Mandatory gitlab url missing from configuration file')
   assert.ok(cfg.gitlab['access-token'] || process.env.GITLAB_ACCESS_TOKEN, 'Mandatory gitlab access token missing from configuration file or env variable GITLAB_ACCESS_TOKEN')
-  assert.ok(cfg.gitlab.group, 'Mandatory group url missing from configuration file')
+  assert.ok(cfg.gitlab.projectsUrl, 'Mandatory projects url missing from configuration file')
   return cfg
 }
