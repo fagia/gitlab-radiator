@@ -9,7 +9,7 @@ before_script:
 build:
   stage: build
   script:
-    - docker build --tag rgiregistry.ad.rgigroup.com:8083/gitlab-radiator:dev .
+    - docker build -- rgiregistry.ad.rgigroup.com:8083/flexitasks/gitlab-radiator:dev .
     - docker push rgiregistry.ad.rgigroup.com:8083/flexitasks/gitlab-radiator:dev
 
 publish:
@@ -17,6 +17,6 @@ publish:
   only:
     - tags
   script:
-    - docker build --tag rgiregistry.ad.rgigroup.com:8083/gitlab-radiator:latest .
+    - docker build -t rgiregistry.ad.rgigroup.com:8083/flexitasks/gitlab-radiator:latest .
     - docker push rgiregistry.ad.rgigroup.com:8083/flexitasks/gitlab-radiator:latest
 
