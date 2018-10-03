@@ -9,7 +9,7 @@ before_script:
 build:
   stage: build
   script:
-    - docker build -- rgiregistry.ad.rgigroup.com:8083/flexitasks/gitlab-radiator:dev .
+    - docker build -t rgiregistry.ad.rgigroup.com:8083/flexitasks/gitlab-radiator:dev .
     - docker push rgiregistry.ad.rgigroup.com:8083/flexitasks/gitlab-radiator:dev
 
 publish:
