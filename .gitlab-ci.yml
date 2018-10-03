@@ -1,0 +1,22 @@
+stages:
+  - dependencies
+  - build
+  - publish
+
+before_script:
+  - docker login rgiregistry.ad.rgigroup.com:8083 -u ${SECRET_NEXUS3_USERNAME} -p ${SECRET_NEXUS3_PASSWORD}
+
+build:
+  stage: build
+  script:
+    - docker build --tag rgiregistry.ad.rgigroup.com:8083/gitlab-radiator:dev .
+    - docker push rgiregistry.ad.rgigroup.com:8083/flexitasks/gitlab-radiator:dev
+
+publish:
+  stage: publish
+  only:
+    - tags
+  script:
+    - docker build --tag rgiregistry.ad.rgigroup.com:8083/gitlab-radiator:latest .
+    - docker push rgiregistry.ad.rgigroup.com:8083/flexitasks/gitlab-radiator:latest
+
