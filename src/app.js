@@ -31,7 +31,8 @@ const globalState = {
   error: null,
   zoom: config.zoom,
   projectsOrder: config.projectsOrder,
-  columns: config.columns
+  columns: config.columns,
+  baseUrl: config.gitlab.url
 }
 
 socketIoServer.on('connection', (socket) => {

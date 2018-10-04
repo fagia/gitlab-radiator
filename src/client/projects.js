@@ -5,12 +5,12 @@ import React from 'react'
 
 export class Projects extends React.PureComponent {
   render() {
-    const {projects, zoom, columns, now, projectsOrder} = this.props
+    const {projects, zoom, columns, baseUrl, now, projectsOrder} = this.props
 
     return <ol className="projects" style={this.zoomStyle(zoom)}>
       {_.sortBy(projects, projectsOrder)
         .map(project => {
-          return <Project now={now} columns={columns} project={project} key={project.id}/>
+          return <Project now={now} columns={columns} baseUrl={baseUrl} project={project} key={project.id}/>
         })
       }
     </ol>
@@ -30,5 +30,6 @@ Projects.propTypes = {
   projectsOrder: PropTypes.array,
   zoom: PropTypes.number,
   columns: PropTypes.number,
+  baseUrl: PropTypes.string,
   now: PropTypes.number
 }

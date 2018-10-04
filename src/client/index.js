@@ -9,7 +9,8 @@ class RadiatorApp extends React.Component {
       header: undefined,
       projects: undefined,
       error: undefined,
-      now: undefined
+      now: undefined,
+      baseUrl: undefined
     }
   }
 
@@ -25,6 +26,7 @@ class RadiatorApp extends React.Component {
       {this.renderErrorMessage()}
       {this.renderProgressMessage()}
       <Projects now={this.state.now} zoom={this.state.zoom} columns={this.state.columns}
+                baseUrl={this.state.baseUrl}
                 projects={this.state.projects || []} projectsOrder={this.state.projectsOrder}/>
     </div>
 
