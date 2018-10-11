@@ -31,7 +31,7 @@ class RadiatorApp extends React.Component {
     </div>
 
   renderHeader = () => {
-    if (!!this.state.header) {
+    if (this.state.header) {
       return <div className="header">
         {this.renderHeaderImage()}
         {this.renderHeaderTitle()}
@@ -42,21 +42,21 @@ class RadiatorApp extends React.Component {
   }
 
   renderHeaderImage = () => {
-    if (!!this.state.header.image) {
+    if (this.state.header.image) {
       return <img src={this.state.header.image} />
     }
     return null
   }
 
   renderHeaderTitle = () => {
-    if (!!this.state.header.title) {
+    if (this.state.header.title) {
       return <h1>{this.state.header.title}</h1>
     }
     return null
   }
 
   renderHeaderSubtitle = () => {
-    if (!!this.state.header.subtitle) {
+    if (this.state.header.subtitle) {
       return <h2>{this.state.header.subtitle}</h2>
     }
     return null

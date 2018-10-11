@@ -2,12 +2,24 @@ import _ from 'lodash'
 import {gitlabRequest} from './client'
 
 export async function fetchProjects(config) {
+  if (config.gitlab.groupName) {
+    config = await resolveGroup(config)
+  }
   const projects = await fetchProjectsPaged(config)
   return _(projects)
     .flatten()
     .map(takeProjectIdAndName)
     .filter(regexFilter(config))
     .value()
+}
+
+async function resolveGroup(config) {
+  const group = await gitlabRequest('/groups/' + config.gitlab.groupName, {}, config)
+  if (group !== undefined) {
+    config.gitlab.projectsUrl = '/groups/' + group.data.id + '/projects'
+  }
+
+  return config
 }
 
 async function fetchProjectsPaged(config, page = 1, projectFragments = []) {

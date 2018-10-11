@@ -10,7 +10,7 @@ export class Project extends React.PureComponent {
 
     return <li className={`project ${project.status}`} style={this.style(columns)}>
       <h2>
-        <a target="_blank"  rel="noopener noreferrer"
+        <a target="_blank" rel="noopener noreferrer"
            style={this.linkStyle}
            href={`${baseUrl}/${project.name}/pipelines/${pipeline.id}`}>
           {project.name}

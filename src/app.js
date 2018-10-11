@@ -60,12 +60,12 @@ function withDate(state) {
 }
 
 function withOptionalHeader(state) {
-  if (!!config.header) {
+  if (config.header) {
     return {
       header: config.header,
       ...state
     }
-  } else {
-    return state
   }
+    return state
+
 }
