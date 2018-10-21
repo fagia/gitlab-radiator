@@ -31,7 +31,8 @@ const globalState = {
   error: null,
   zoom: config.zoom,
   projectsOrder: config.projectsOrder,
-  columns: config.columns
+  columns: config.columns,
+  baseUrl: config.gitlab.url
 }
 
 socketIoServer.on('connection', (socket) => {
@@ -59,12 +60,12 @@ function withDate(state) {
 }
 
 function withOptionalHeader(state) {
-  if (!!config.header) {
+  if (config.header) {
     return {
       header: config.header,
       ...state
     }
-  } else {
-    return state
   }
+    return state
+
 }
